@@ -13,27 +13,13 @@ import {createEpicMiddleware, combineEpics} from 'redux-observable';
 import * as reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import * as persistState from 'redux-localstorage'
 import {environment} from '../environments/environment';
-import {ReleaseTogglesService} from './release-toggles/epics/release-toggles.service';
 import {AppComponent} from './app.component';
-import {ReleaseTogglesComponent} from './release-toggles/release-toggles.component';
-import {ReleaseToggleEditModalComponent} from './release-toggles/modal/release-toggle-edit-modal.component';
-import {ClarityModule} from 'clarity-angular';
-import {ReleaseTogglesActions} from './release-toggles/release-toggles.actions';
-import {ReleaseTogglesEpics} from './release-toggles/epics/release-toggles.epic';
 import {routes} from './routes';
-
-import 'clarity-icons';
-import 'clarity-icons/shapes/essential-shapes';
-import {ReleaseToggleComponent} from './release-toggle/release-toggle.component';
-import {ReleaseToggleEpics} from './release-toggle/epics/release-toggle.epic';
-import {ReleaseToggleActions} from './release-toggle/release-toggle.actions';
+import {NavModule} from './nav/nav.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ReleaseTogglesComponent,
-    ReleaseToggleEditModalComponent,
-    ReleaseToggleComponent
+    AppComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -41,31 +27,20 @@ import {ReleaseToggleActions} from './release-toggle/release-toggle.actions';
     HttpModule,
     FormsModule,
     BrowserAnimationsModule,
-    ClarityModule.forRoot(),
     NgReduxModule,
     NgReduxFormModule,
-    NgReduxRouterModule
+    NgReduxRouterModule,
+    NavModule
   ],
-  providers: [
-    ReleaseTogglesService,
-    ReleaseTogglesActions,
-    ReleaseToggleActions,
-    ReleaseTogglesEpics,
-    ReleaseToggleEpics
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 
   constructor(private ngRedux: NgRedux<any>,
-              ngReduxRouter: NgReduxRouter,
-              private releaseTogglesEpics: ReleaseTogglesEpics,
-              private releaseToggleEpics: ReleaseToggleEpics) {
+              ngReduxRouter: NgReduxRouter) {
 
     const epics = combineEpics(
-      this.releaseTogglesEpics.fetchReleaseToggles,
-      this.releaseTogglesEpics.editReleaseToggle,
-      this.releaseToggleEpics.fetchReleaseToggle
     );
 
     const middleware = [
