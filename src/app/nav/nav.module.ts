@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NavComponent} from './nav.component';
 import {MaterialModule} from '../material/material.module';
+import {NavActions} from './nav.actions';
+import {NavLoginComponent} from './nav-login/nav-login.component';
 
 @NgModule({
   imports: [
@@ -9,10 +11,14 @@ import {MaterialModule} from '../material/material.module';
     MaterialModule
   ],
   declarations: [
-    NavComponent
+    NavComponent,
+    NavLoginComponent
   ],
   exports: [
     NavComponent
+  ],
+  providers: [
+    NavActions
   ]
 })
 export class NavModule {
