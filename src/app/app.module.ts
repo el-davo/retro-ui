@@ -14,6 +14,7 @@ import {environment} from '../environments/environment';
 import {AppComponent} from './app.component';
 import {routes} from './routes';
 import {NavModule} from './nav/nav.module';
+import {NavEpics} from './nav/nav.epic';
 
 @NgModule({
   declarations: [
@@ -34,9 +35,11 @@ import {NavModule} from './nav/nav.module';
 export class AppModule {
 
   constructor(private ngRedux: NgRedux<any>,
-              ngReduxRouter: NgReduxRouter) {
+              ngReduxRouter: NgReduxRouter,
+              private navEpics: NavEpics) {
 
     const epics = combineEpics(
+      this.navEpics.showLoginModal
     );
 
     const middleware = [
