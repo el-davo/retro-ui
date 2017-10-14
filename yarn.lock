@@ -40,9 +40,9 @@
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@angular-redux/store/-/store-6.5.7.tgz#22c3b4815c89d6cca0ac93dddb7cabec3966f1fc"
 
-"@angular/animations@^4.4.4":
-  version "4.4.4"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.4.4.tgz#a2f9353604347abe15df98292058842f52f08bc2"
+"@angular/animations@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.4.5.tgz#5a5a551d757e5a5560098f6f8535c102d93954d7"
   dependencies:
     tslib "^1.7.1"
 
@@ -126,9 +126,9 @@
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
 
-"@angular/compiler@^4.2.5":
-  version "4.2.6"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.2.6.tgz#667756d495ca0d45d2061268a10d52af839faff4"
+"@angular/compiler@4.2.5":
+  version "4.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.2.5.tgz#b48674c7456b2b0df1072d70e4e667af86cddf83"
   dependencies:
     tslib "^1.7.1"
 
@@ -160,15 +160,15 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-browser-dynamic@^4.2.5":
-  version "4.2.6"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.2.6.tgz#4e6c8ad2cd5cfc17880417f77f2a3413cf791c26"
+"@angular/platform-browser-dynamic@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.4.5.tgz#774dbdc1d90f775dbf1e319f6ed42b260623b61f"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-browser@^4.2.5":
-  version "4.2.6"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.2.6.tgz#a131ff592225fe6496bca2c9aff612a4dbddf437"
+"@angular/platform-browser@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.4.5.tgz#74eb91c0b758126f26d53ee56c7cf4668bd9cac5"
   dependencies:
     tslib "^1.7.1"
 
