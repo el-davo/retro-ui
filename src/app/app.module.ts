@@ -14,7 +14,7 @@ import {environment} from '../environments/environment';
 import {AppComponent} from './app.component';
 import {routes} from './routes';
 import {NavModule} from './nav/nav.module';
-import {NavEpics} from './nav/nav.epic';
+import {NavEpics} from './nav/nav.epics';
 
 @NgModule({
   declarations: [
