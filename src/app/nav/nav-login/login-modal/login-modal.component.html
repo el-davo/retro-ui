@@ -1,3 +1,16 @@
-<p>
-  login-modal works!
-</p>
+<mat-dialog-content>
+  <form>
+    <p>
+      <mat-form-field>
+        <input matInput placeholder="Username">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Password">
+      </mat-form-field>
+    </p>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="closeModal()">Cancel</button>
+  <button mat-button (click)="login()">Login</button>
+</mat-dialog-actions>
