@@ -1,6 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MatToolbarModule, MatButtonModule, MatIconModule, MatDialogModule, MatInputModule} from '@angular/material';
+import {
+  MatToolbarModule, MatButtonModule, MatIconModule, MatDialogModule, MatInputModule,
+  MatDialogRef
+} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({

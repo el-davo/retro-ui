@@ -30,7 +30,9 @@ import {NavEpics} from './nav/nav.epics';
     NavModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule {
 
@@ -39,7 +41,8 @@ export class AppModule {
               private navEpics: NavEpics) {
 
     const epics = combineEpics(
-      this.navEpics.showLoginModal
+      this.navEpics.showLoginModal,
+      this.navEpics.login
     );
 
     const middleware = [

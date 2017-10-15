@@ -9,7 +9,8 @@ import {LoginModalComponent} from './nav-login/login-modal/login-modal.component
 
 @Injectable()
 export class NavEpics {
-  constructor(private navActions: NavActions, public dialog: MatDialog) {
+  constructor(private navActions: NavActions,
+              public dialog: MatDialog) {
   }
 
   showLoginModal = action$ => {
@@ -18,6 +19,15 @@ export class NavEpics {
         this.dialog.open(LoginModalComponent).afterClosed();
 
         return {type: 'UNKNOWN'};
+      });
+  };
+
+  login = action$ => {
+    return action$.ofType(NavActions.LOGIN)
+      .map(() => {
+        this.dialog.closeAll();
+
+        return {type: this.navActions.loginSuccess()};
       });
   };
 
