@@ -15,6 +15,7 @@ import {AppComponent} from './app.component';
 import {routes} from './routes';
 import {NavModule} from './nav/nav.module';
 import {NavEpics} from './nav/nav.epics';
+import {GraphqlModule} from './graphql/graphql.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {NavEpics} from './nav/nav.epics';
     BrowserAnimationsModule,
     NgReduxModule,
     NgReduxRouterModule,
+    GraphqlModule,
     NavModule
   ],
   providers: [],
