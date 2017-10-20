@@ -6,6 +6,7 @@ import {NavActions} from './nav.actions';
 import {NavLoginComponent} from './nav-login/nav-login.component';
 import {LoginModalComponent} from './nav-login/login-modal/login-modal.component';
 import {NavEpics} from './nav.epics';
+import { NavSignupComponent } from './nav-signup/nav-signup.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {NavEpics} from './nav.epics';
   declarations: [
     NavComponent,
     NavLoginComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    NavSignupComponent
   ],
   exports: [
     NavComponent
