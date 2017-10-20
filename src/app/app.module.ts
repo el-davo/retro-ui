@@ -42,6 +42,7 @@ export class AppModule {
 
     const epics = combineEpics(
       this.navEpics.showLoginModal,
+      this.navEpics.showSignupModal,
       this.navEpics.login
     );
 
