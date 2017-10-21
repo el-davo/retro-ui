@@ -3,10 +3,11 @@ import {CommonModule} from '@angular/common';
 import ApolloClient from 'apollo-client/ApolloClient';
 import {createNetworkInterface} from 'apollo-client';
 import {ApolloModule} from 'apollo-angular';
+import {environment} from '../../environments/environment';
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
-    uri: 'http://my-api.grapql.com'
+    uri: environment.graphqlApi
   }),
 });
 

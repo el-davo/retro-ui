@@ -1,23 +1,35 @@
 import {Injectable} from '@angular/core';
 import {Apollo} from 'apollo-angular';
 import gql from 'graphql-tag';
+import {SignupForm} from './user.state';
 
 @Injectable()
 export class UserService {
 
   private signupQuery = gql`
-  query CurrentUserForProfile($avatarSize: Int!) {
-    currentUser {
-      login
-      avatar_url(avatarSize: $avatarSize)
+  mutation createUser($userForm: JSON) {
+    userCreate(input:{data: $userForm}) {
+      obj {
+        id
+        username
+      }
     }
   }`;
 
   constructor(private apollo: Apollo) {
   }
 
-  signup() {
-    return this.apollo.mutate({mutation: this.signupQuery});
+  signup(signupForm: SignupForm) {
+    return this.apollo.mutate({
+      mutation: this.signupQuery,
+      variables: {
+        userForm: {
+          username: signupForm.username,
+          email: signupForm.email,
+          password: signupForm.password
+        }
+      }
+    });
   }
 
 }
