@@ -2,5 +2,4 @@ name: retro-ui
 instances: 1
 memory: 128M
 buildpack: nodejs_buildpack
-path: ./dist
-command: node server.js
+command: node ./dist/server.js
