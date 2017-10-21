@@ -32,13 +32,4 @@ export class NavEpics {
       });
   };
 
-  login = action$ => {
-    return action$.ofType(NavActions.LOGIN)
-      .map(() => {
-        this.dialog.closeAll();
-
-        return {type: this.navActions.loginSuccess()};
-      });
-  };
-
 }

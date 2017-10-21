@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
 import {dispatch} from '@angular-redux/store';
 import {NavActions} from '../../nav.actions';
+import {UserActions} from '../../../user/user.actions';
 
 @Component({
   selector: 'app-login-modal',
@@ -10,7 +11,9 @@ import {NavActions} from '../../nav.actions';
 })
 export class LoginModalComponent {
 
-  constructor(private navActions: NavActions, public dialogRef: MatDialogRef<LoginModalComponent>) {
+  constructor(private userActions: UserActions,
+              private navActions: NavActions,
+              public dialogRef: MatDialogRef<LoginModalComponent>) {
   }
 
   @dispatch()
@@ -21,6 +24,6 @@ export class LoginModalComponent {
 
   @dispatch()
   login() {
-    return this.navActions.login();
+    return this.userActions.login();
   }
 }

@@ -1,5 +1,6 @@
 import {NavState, navState} from './nav.state';
 import {NavActions} from './nav.actions';
+import {UserActions} from '../user/user.actions';
 
 export const navReducer = (state: NavState = navState, action): NavState => {
   switch (action.type) {
@@ -11,12 +12,8 @@ export const navReducer = (state: NavState = navState, action): NavState => {
       return {...state, showSignupModal: true};
     case NavActions.HIDE_SIGNUP_MODAL:
       return {...state, showSignupModal: false};
-    case NavActions.SIGNUP:
-      return {...state, isSigningUp: true};
-    case NavActions.SIGNUP_SUCCESS:
-      return {...state, isSigningUp: false, showSignupModal: false};
-    case NavActions.SIGNUP_FAIL:
-      return {...state, isSigningUp: false};
+    case UserActions.SIGNUP_SUCCESS:
+      return {...state, showSignupModal: false};
     default:
       return state;
   }

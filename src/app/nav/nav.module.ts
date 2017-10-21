@@ -10,13 +10,15 @@ import {NavSignupComponent} from './nav-signup/nav-signup.component';
 import {SignupModalComponent} from './nav-signup/signup-modal/signup-modal.component';
 import {NgReduxFormModule} from '@angular-redux/form';
 import {FormsModule} from '@angular/forms';
+import {UserModule} from '../user/user.module';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
     FormsModule,
-    NgReduxFormModule
+    NgReduxFormModule,
+    UserModule
   ],
   declarations: [
     NavComponent,
