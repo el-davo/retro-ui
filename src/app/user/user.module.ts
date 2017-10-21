@@ -3,10 +3,12 @@ import {CommonModule} from '@angular/common';
 import {UserService} from './user.service';
 import {UserEpics} from './user.epics';
 import {UserActions} from './user.actions';
+import {GraphqlModule} from '../graphql/graphql.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    GraphqlModule
   ],
   declarations: [],
   providers: [
