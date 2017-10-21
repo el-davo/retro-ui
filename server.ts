@@ -8,6 +8,9 @@ import {enableProdMode} from '@angular/core';
 import * as express from 'express';
 import {join} from 'path';
 import {readFileSync} from 'fs';
+import * as CFEnv from 'cfenv';
+
+const cfenv = CFEnv.getAppEnv();
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -52,6 +55,6 @@ app.get('*', (req, res) => {
 });
 
 // Start up the Node server
-app.listen(PORT, () => {
+app.listen(cfenv.isLocal ? PORT : cfenv.port, () => {
   console.log(`Node server listening on http://localhost:${PORT}`);
 });

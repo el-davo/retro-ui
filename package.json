@@ -37,6 +37,7 @@
     "@webcomponents/custom-elements": "1.0.0-alpha.3",
     "apollo-angular": "^0.13.2",
     "apollo-client": "^1.9.3",
+    "cfenv": "^1.0.4",
     "core-js": "^2.4.1",
     "graphql-tag": "^2.5.0",
     "mutationobserver-shim": "0.3.2",
