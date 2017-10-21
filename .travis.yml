@@ -9,7 +9,7 @@ cache:
   yarn: true
 deploy:
   provider: cloudfoundry
-  api: https://api.system.titan.lab.emc.com
+  api: https://api.run.pivotal.io
   username: ahernd2
   password:
     secure: jxBDGMHhokiy0hAifoJI0gvoWBivxPoNeAZ2upjf4mh/Ant7oe0J/VV1ug9BkjNnA8vFNZdTjmYQC8HO1oRYgz1bPBE+7n4svrEUZJF4T5bQZBJk4R3aAgZZojIxDEAJa74ADdQB80nxVnQvLFXsFgidvSEf9MIufE+VnySmhjz1IbPcmberykUgbPjfw8ueo2z6wzX7uAh3P6c5wEvoj48b+l4+HwFX8sDh0gH9d1aZSq4uyrNQhlt+bmuWMKEOhCNuafn/51CewDZTA9bFeWJn09gmvUf9BVXH6r3fF6UMX2sbPqi18U+xbFsGx/ytll/gTp7CbrkgxTNL/nnnqhnG39633Q+jWxP6EhQHFLfFiO6d1Ca6+tqST8FwLsApCW0XXGmwnXkB0xQpDE8TSFfmQGbHXDifGXA+etxYYewE6DTtSd8fqdzRWYAA0bveHDM7XZU3dz7EXj5Pri6dGzMiJThfy5+Ulexm+Xd+2VOlL5zPDjD+fk6IyA2wk5hAagq9q2lUwi3T8D303VQJojrKo3arJa1pA2lRBJX7tVIt8EFy+UR/bxRFMZ5UrqSlQfyIRhVVGvoEWLMc0oc3TUhkr0lZuXArGuHT7NT5SwtUIt7STD38M/CzSFXKkStYcWIndIBQ+8h5FXhYZaDSH3nPTMQiEvBMXFj8nDI4eb0=
