@@ -8,6 +8,10 @@ services:
     command: mysqld --user=root --verbose
     ports:
       - 3306:3306
+    networks:
+      main:
+        aliases:
+          - db
     environment:
       MYSQL_DATABASE: "retro"
       MYSQL_USER: "username"
@@ -15,26 +19,46 @@ services:
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    links:
-      - db
+  redis:
+    image: redis
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
     ports:
-      - 8001:80
-    environment:
-      PMA_HOST: db
-      PMA_PORT: 3306
-      MYSQL_USERNAME: username
-      MYSQL_ROOT_PASSWORD: password
+      - 6379:6379
+    networks:
+      main:
+        aliases:
+          - redis
 
   retro-api:
-      image: eahedav/retro-api:latest
-      depends_on:
-        - db
-      ports:
-        - 3000:3000
-      command: >
-        /bin/bash -c "sleep 2; node ."
+    image: eahedav/retro-api:latest
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    networks:
+      main:
+        aliases:
+          - retro-api
+    command: >
+      /bin/bash -c "sleep 2; node ."
+
+  retro-gateway:
+    image: eahedav/retro-gateway:latest
+    depends_on:
+      - redis
+      - retro-api
+    ports:
+      - 8001:8080
+    networks:
+      main:
+        aliases:
+          - retro-gateway
+    command: >
+      /bin/bash -c "sleep 2; node ."
+
+networks:
+  main:
 
 volumes:
   db:
