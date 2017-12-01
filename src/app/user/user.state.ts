@@ -1,6 +1,7 @@
 export const userState: UserState = {
   isSigningUp: false,
   isLoggingIn: false,
+  isLoggedIn: false,
   signupForm: {
     username: '',
     email: '',
@@ -13,6 +14,7 @@ export const userState: UserState = {
 export interface UserState {
   isSigningUp: boolean;
   isLoggingIn: boolean;
+  isLoggedIn: boolean;
   signupForm: SignupForm;
   user: User;
 }

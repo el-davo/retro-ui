@@ -12,7 +12,7 @@ export const userReducer = (state: UserState = userState, action): UserState => 
     case UserActions.LOGIN:
       return {...state, isLoggingIn: true};
     case UserActions.LOGIN_SUCCESS:
-      return {...state, isLoggingIn: false};
+      return {...state, isLoggingIn: false, isLoggedIn: true, user: action.user};
     case UserActions.LOGIN_FAIL:
       return {...state, isLoggingIn: false};
     default:
