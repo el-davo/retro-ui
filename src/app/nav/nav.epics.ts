@@ -10,8 +10,7 @@ import {SignupModalComponent} from './nav-signup/signup-modal/signup-modal.compo
 
 @Injectable()
 export class NavEpics {
-  constructor(private navActions: NavActions,
-              public dialog: MatDialog) {
+  constructor(public dialog: MatDialog) {
   }
 
   showLoginModal = action$ => {
@@ -27,6 +26,15 @@ export class NavEpics {
     return action$.ofType(NavActions.SHOW_SIGNUP_MODAL)
       .map(() => {
         this.dialog.open(SignupModalComponent).afterClosed();
+
+        return {type: 'UNKNOWN'};
+      });
+  };
+
+  hideAllModals = action$ => {
+    return action$.ofType(NavActions.HIDE_ALL_MODALS)
+      .map(() => {
+        this.dialog.closeAll();
 
         return {type: 'UNKNOWN'};
       });

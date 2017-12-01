@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
   hmr: false,
+  gateway: 'http://localhost:8001',
   graphqlApi: 'http://localhost:3000/graphql'
 };

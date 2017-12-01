@@ -17,6 +17,7 @@ import {routes} from './routes';
 import {NavModule} from './nav/nav.module';
 import {NavEpics} from './nav/nav.epics';
 import {UserEpics} from './user/user.epics';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {UserEpics} from './user/user.epics';
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule.withServerTransition({appId: 'retro'}),
+    HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
     NgReduxModule,
@@ -47,6 +49,7 @@ export class AppModule {
     const epics = combineEpics(
       this.navEpics.showLoginModal,
       this.navEpics.showSignupModal,
+      this.navEpics.hideAllModals,
       this.userEpics.login,
       this.userEpics.signup
     );

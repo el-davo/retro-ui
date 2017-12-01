@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {User} from './user.state';
 
 @Injectable()
 export class UserActions {
@@ -19,7 +20,7 @@ export class UserActions {
 
   signup = () => ({type: UserActions.SIGNUP});
 
-  signupSuccess = () => ({type: UserActions.LOGIN_SUCCESS});
+  signupSuccess = (user: User) => ({type: UserActions.LOGIN_SUCCESS, user});
 
   signupFail = () => ({type: UserActions.SIGNUP_FAIL});
 }

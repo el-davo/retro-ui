@@ -2,24 +2,24 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/concat';
 import {Injectable} from '@angular/core';
-import {MatDialog} from '@angular/material';
 import {UserActions} from './user.actions';
 import {UserService} from './user.service';
 import {Observable} from 'rxjs/Observable';
+import {User} from './user.state';
+import {NavActions} from '../nav/nav.actions';
 
 @Injectable()
 export class UserEpics {
   constructor(private userActions: UserActions,
-              private userService: UserService,
-              public dialog: MatDialog) {
+              private navActions: NavActions,
+              private userService: UserService) {
   }
 
   login = action$ => {
     return action$.ofType(UserActions.LOGIN)
       .map(() => {
-        this.dialog.closeAll();
-
         return {type: this.userActions.loginSuccess()};
       });
   };
@@ -29,18 +29,12 @@ export class UserEpics {
       .mergeMap(() => {
         const {signupForm} = store.getState().user;
 
-        console.log(signupForm);
-        // this.dialog.closeAll();
-
         return this.userService.signup(signupForm)
-          .map(data => {
-            console.log(data);
-            return this.userActions.signupSuccess()
-          })
-          .catch(err => {
-            console.log(err);
-            return Observable.of(this.userActions.signupFail())
-          });
+          .mergeMap((user: User) => Observable.concat(
+            Observable.of(this.userActions.signupSuccess(user)),
+            Observable.of(this.navActions.hideAllModals())
+          )
+            .catch(() => Observable.of(this.userActions.signupFail())));
       });
   };
 

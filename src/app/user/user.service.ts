@@ -1,35 +1,16 @@
 import {Injectable} from '@angular/core';
-import {Apollo} from 'apollo-angular';
-import gql from 'graphql-tag';
+import {environment} from '../../environments/environment';
 import {SignupForm} from './user.state';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class UserService {
 
-  private signupQuery = gql`
-  mutation createUser($userForm: JSON) {
-    userCreate(input:{data: $userForm}) {
-      obj {
-        id
-        username
-      }
-    }
-  }`;
-
-  constructor(private apollo: Apollo) {
+  constructor(private http: HttpClient) {
   }
 
-  signup(signupForm: SignupForm) {
-    return this.apollo.mutate({
-      mutation: this.signupQuery,
-      variables: {
-        userForm: {
-          username: signupForm.username,
-          email: signupForm.email,
-          password: signupForm.password
-        }
-      }
-    });
+  signup({username, password, email}: SignupForm) {
+    return this.http.post(`${environment.gateway}/users`, {username, password, email});
   }
 
 }

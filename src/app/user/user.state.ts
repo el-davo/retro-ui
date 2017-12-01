@@ -6,13 +6,15 @@ export const userState: UserState = {
     email: '',
     password: '',
     passwordRetype: ''
-  }
+  },
+  user: null
 };
 
 export interface UserState {
   isSigningUp: boolean;
   isLoggingIn: boolean;
-  signupForm: SignupForm
+  signupForm: SignupForm;
+  user: User;
 }
 
 export interface SignupForm {
@@ -20,4 +22,9 @@ export interface SignupForm {
   email: string;
   password: string;
   passwordRetype: string;
+}
+
+export interface User {
+  id: string;
+  username: string;
 }
